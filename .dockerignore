@@ -1,0 +1,6 @@
+.git/
+tools/
+server/data/
+server/tmp-repro.pdf
+DEPLOY.md
+*.log

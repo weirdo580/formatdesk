@@ -1,0 +1,8 @@
+{
+  "name": "formatdesk-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "格式转换台后端：API 网关 + 任务调度中心（零依赖，Node >= 20）",
+  "engines": { "node": ">=20" }
+}
