@@ -1,6 +1,31 @@
-# FormatDesk 部署清单（Ubuntu 22.04 / 24.04 · 轻量服务器）
+# FormatDesk 部署清单
 
-> 目标：把本机这套「零依赖 Node 22 + FFmpeg + LibreOffice」原样搬到云服务器。
+## 当前线上：GitHub Pages 静态版（免费，无需服务器）
+
+站点：https://weirdo580.github.io/formatdesk/
+
+转换全部在访客浏览器内完成（`vendor/` 里的 FFmpeg.wasm + pdf-lib + 内置文本引擎），服务端只发静态文件，所以不需要任何后端。
+
+**更新上线流程（本机 Git Bash）：**
+```bash
+cd "D:/86198/Documents/转换格式"
+git add -A && git commit -m "feat: 说明改了什么"
+# 本机 github.com 不稳，走 GitHub Data API 推送脚本
+GH_TOKEN=你的令牌 node gh-push.mjs
+```
+
+**首次开启 Pages（只需一次，仓库 Settings 里点）：**
+Settings → Pages → Source 选 `Deploy from a branch` → Branch 选 `main` / `/(root)` → Save。
+之后 `git push` 完成后约 1 分钟自动更新。
+
+静态版不含 PDF/Word/PPT/Excel 文档互转。若以后需要文档互转，按下面的步骤自架服务器跑 `server/`，
+把前端 `MATRIX` 与文案改回调用后端 API 即可。
+
+---
+
+# 附录：Node 后端自架部署（Ubuntu 22.04 / 24.04 · 轻量服务器）
+
+> 目标：把本机这套「零依赖 Node 22 + FFmpeg + LibreOffice」原样搬到云服务器，恢复文档互转能力。
 > 代码零改动（引擎探测已支持 Linux PATH；监听地址/密钥全走环境变量）。
 
 ## 第 0 步 · 立刻去做（和部署并行）

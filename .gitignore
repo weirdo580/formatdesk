@@ -1,6 +1,10 @@
 # 本机开发用引擎二进制（215MB，容器里用 apt 装的版本）
 /tools/
 
+# 一次性推送脚本与本地测试素材
+/gh-push.mjs
+/t.*
+
 # 运行时数据与临时产物
 /server/data/
 /server/tmp-repro.pdf
